@@ -18,9 +18,10 @@ class Set:
             card_values_for_prop = [
                 card.properties[prop_field_index] for card in self.cards
             ]
-            valid &= BitEnum.are_same(card_values_for_prop) | BitEnum.are_different(
-                card_values_for_prop
-            )
+            are_same = BitEnum.are_same(card_values_for_prop)
+            are_different = BitEnum.are_different(card_values_for_prop)
+
+            valid &= are_same | are_different
         return valid
 
     def __repr__(self):

@@ -24,9 +24,11 @@ class BitEnum(enum.Enum):
 
     @staticmethod
     def are_different(others: List[BitEnumType]) -> bool:
+        bit_size = max([prop.bit_length() for prop in others])
+        all_bits_set = reduce(ior, [1 << i for i in range(bit_size)])
         bitwise_or = reduce(ior, [prop.value for prop in others])
         # ensure all bits are set
-        return (bitwise_or & (bitwise_or + 1)) == 0
+        return bitwise_or == all_bits_set
 
 
 class Color(BitEnum):

@@ -24,7 +24,6 @@ def main():
         Card(Color.Green, Shape.Oval, Fill.Outlined, Number.One),
         Card(Color.Purple, Shape.Squiggle, Fill.Striped, Number.Two),
         Card(Color.Red, Shape.Squiggle, Fill.Solid, Number.One),
-
     ]
 
     solver = Solver(cards)
