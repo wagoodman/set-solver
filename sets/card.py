@@ -67,7 +67,8 @@ class Card:
         self.bit_length = sum([prop.bit_length() for prop in self.properties])
 
     def as_bit_string(self):
-        return f"{self.properties.color.as_bit_string()}|{self.properties.shape.as_bit_string()}|{self.properties.fill.as_bit_string()}|{self.properties.number.as_bit_string()}"
+        return "|".join([prop.as_bit_string() for prop in self.properties])
 
     def __repr__(self):
-        return f"Card(color:{self.properties.color.name}, shape:{self.properties.shape.name}, fill:{self.properties.fill.name}, number:{self.properties.number.name}) = {self.as_bit_string()} = {self.bits}"
+        props = ', '.join([f"{prop.name}"for prop in self.properties])
+        return f"Card: {self.as_bit_string()} ({props})"

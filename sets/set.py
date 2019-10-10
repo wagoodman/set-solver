@@ -4,9 +4,13 @@ from sets.card import Card, CardProperties, BitEnum
 
 class Set:
     def __init__(self, cards: List[Card]):
-        if len(cards) > 3:
+        if len(cards) > Set.size():
             raise RuntimeError(f"sets can only be of length 3, given {len(cards)}")
         self.cards = cards
+
+    @staticmethod
+    def size():
+        return 3
 
     def is_valid(self) -> bool:
         valid: bool = True
