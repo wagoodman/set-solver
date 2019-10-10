@@ -1,5 +1,6 @@
 import enum
 import collections
+import uuid
 from functools import reduce
 from operator import ior
 from typing import List, TypeVar
@@ -54,6 +55,7 @@ class Number(BitEnum):
 
 class Card:
     def __init__(self, color: Color, shape: Shape, fill: Fill, number: Number):
+        self.id = str(uuid.uuid4())[:8]
         self.properties = CardProperties(
             color=color, shape=shape, fill=fill, number=number
         )
@@ -71,4 +73,4 @@ class Card:
 
     def __repr__(self):
         props = ', '.join([f"{prop.name}"for prop in self.properties])
-        return f"Card: {self.as_bit_string()} ({props})"
+        return f"Card {self.id}: {self.as_bit_string()} ({props})"

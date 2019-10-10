@@ -19,10 +19,16 @@ def main():
         Card(Color.Green, Shape.Oval, Fill.Striped, Number.Three),
         Card(Color.Green, Shape.Oval, Fill.Outlined, Number.Three),
         Card(Color.Green, Shape.Oval, Fill.Solid, Number.Three),
+        Card(Color.Green, Shape.Oval, Fill.Solid, Number.Three),
+        Card(Color.Purple, Shape.Diamond, Fill.Outlined, Number.One),
+        Card(Color.Green, Shape.Oval, Fill.Outlined, Number.One),
+        Card(Color.Purple, Shape.Squiggle, Fill.Striped, Number.Two),
+        Card(Color.Red, Shape.Squiggle, Fill.Solid, Number.One),
+
     ]
 
     solver = Solver(cards)
-    for set in solver.solve():
+    for set in solver.all_sets():
         print(set)
 
 
